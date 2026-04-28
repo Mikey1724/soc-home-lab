@@ -38,10 +38,11 @@ for i in {1..15}; do ssh wronguser@localhost 2>/dev/null; done
 grep "Failed password" /var/log/auth.log | awk '{print $11}' | sort | uniq -c
 ```
 
-**Finding:** 15 failed attempts from 127.0.0.1 targeting user "wronguser".
+**Finding:** 25 failed attempts from 127.0.0.1 targeting user "wronguser".
 Threshold alert triggered at 5+ attempts.
 
-**Screenshot:** [attach screenshot here]
+**Screenshot:**
+![image alt](https://github.com/Mikey1724/soc-home-lab/blob/2f5cb90cfdc0969cf4872a7ef5c2d461537c128a/images/M1_1_1_filtrage_des_logs_pour_analyse.png)
 
 ---
 
@@ -68,7 +69,8 @@ when a source IP exceeds the defined threshold.
 
 ---
 
-**Test Screenshot:** [attach screenshot here]
+**Test Screenshot:** 
+![image alt](https://github.com/Mikey1724/soc-home-lab/blob/6e96925bb84325a194382ff1b397b2aa929eeea1/images/M1_1_1_detection_script_result.png)
 
 ---
 
