@@ -69,7 +69,8 @@ when a source IP exceeds the defined threshold.
 
 ---
 
-**Test Screenshot:** [attach screenshot here]
+**Test Screenshot:** 
+![image alt](https://github.com/Mikey1724/soc-home-lab/blob/6e96925bb84325a194382ff1b397b2aa929eeea1/images/M1_1_1_detection_script_result.png)
 
 ---
 
