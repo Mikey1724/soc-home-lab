@@ -38,7 +38,7 @@ for i in {1..15}; do ssh wronguser@localhost 2>/dev/null; done
 grep "Failed password" /var/log/auth.log | awk '{print $11}' | sort | uniq -c
 ```
 
-**Finding:** 15 failed attempts from 127.0.0.1 targeting user "wronguser".
+**Finding:** 25 failed attempts from 127.0.0.1 targeting user "wronguser".
 Threshold alert triggered at 5+ attempts.
 
 **Screenshot:**
