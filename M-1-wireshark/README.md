@@ -32,6 +32,7 @@ a structured SOC analyst methodology.
 | File | Description |
 |------|-------------|
 | `lumma-stealer-2026-01-31-report.md` | Full analysis report — Lumma Stealer infection |
+| `netsupport-rat-2026-02-28.md` | Full analysis report — NetSuppot RAT infection |
 | `README.md` | This file |
 
 ---
@@ -41,9 +42,10 @@ a structured SOC analyst methodology.
 | Exercise Date | Malware Identified | Victim IP   | C2 Server      | IOCs Found |
 |---------------|--------------------|-------------|----------------|------------|
 | 2026-01-31    | Lumma Stealer      | 10.1.21.58  | 153.92.1.49    | 10         |
+| 2026-02-28    | NetSupport RAT     | 10.2.28.88  | 45.131.214.85  | 5          |
 | [next one]    | [...]              | [...]       | [...]          | [...]      |
 
-> This table grows as you analyze more PCAPs. One row per exercise.
+> This table grows as i analyze more PCAPs. One row per exercise.
 
 ---
 
