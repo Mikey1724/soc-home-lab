@@ -55,7 +55,7 @@ enumeration or lateral movement attempts post-compromise.
 
 ### 2.3 Suspicious Domain Resolution
 
-The victim queried `vadusa.xyz` — a .xyz TLD domain with no apparent
+The victim queried `vadusa.xyz` — a ".xyz" TLD domain with no apparent
 legitimate business purpose. Requires further investigation (WHOIS + VirusTotal).
 
 ---
@@ -124,3 +124,5 @@ dns.qry.name contains "vadusa"
 - [Malware Traffic Analysis Exercise](https://malware-traffic-analysis.net/2026/02/28/index.html)
 - [MITRE ATT&CK T1219 — Remote Access Software](https://attack.mitre.org/techniques/T1219/)
 - [NetSupport RAT analysis — Any.run](https://any.run/malware-trends/netsupportrat)
+
+
