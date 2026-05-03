@@ -68,7 +68,7 @@ enumeration or lateral movement attempts post-compromise.
 
 ### 2.3 Malicious Domain Resolution
 
-The victim queried `whooptm.cyou` — a .cyou TLD malicious domain who is related with Lumma Stealer malware.
+The victim queried `whooptm.cyou` — a ".cyou" TLD malicious domain who is related with Lumma Stealer malware.
 There are also `arch.filemegahab4.sbs`,`communicationfirewall-security.cc`,`holiday-forever.cc` who need to be investiguate.
 
 ---
