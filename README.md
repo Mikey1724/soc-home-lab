@@ -21,8 +21,8 @@ to SIEM deployment, incident response, and threat intelligence.
 
 | Month | Focus Area | Tools | Projects | Status |
 |-------|-----------|-------|----------|--------|
-| 1 | Linux CLI · Network Analysis · IDS | Wireshark, tshark, Suricata | 3 | 🔄 In progress |
-| 2 | SIEM & Log Management | Wazuh, ELK Stack, Kibana | 3 | ⏳ Planned |
+| 1 | Linux CLI · Network Analysis · IDS | Wireshark, tshark, Suricata | 3 | ✅ Complete |
+| 2 | SIEM & Log Management | Wazuh, ELK Stack, Kibana | 3 | 🔄 In progress |
 | 3 | Incident Response & Forensics | Zeek, TheHive, Volatility | 3 | ⏳ Planned |
 | 4 | Threat Intelligence | MISP, YARA, VirusTotal API | 3 | ⏳ Planned |
 | 5 | SOC Automation & SOAR | Shuffle, Python, TheHive API | 3 | ⏳ Planned |
@@ -58,13 +58,13 @@ to SIEM deployment, incident response, and threat intelligence.
 
 ### Project 1.3 — IDS Deployment with Suricata
 > Deployed Suricata as a network IDS and wrote custom detection rules
-> based on real IOCs extracted from malware analysis.
+> simulate real attacks from a Kali Linux machine, and validate each rule by analyzing Suricata alert logs.
 
-- Custom rules targeting Lumma Stealer C2 patterns
+- Custom rules targeting classic attacks patterns (ICMP,NMAP,SSH brute-force,SQLi)
 - Emerging Threats ruleset integration
 - Alert analysis via eve.json
 
-📁 [`month-1-suricata/`](./M-1-suricata/) *(coming soon)*
+📁 [`month-1-suricata/`](./M-1-suricata/) 
 
 ---
 
@@ -104,7 +104,10 @@ soc-home-lab/
 │   ├── README.md
 │   ├── lumma-stealer-2026-01-31-report.md
 │   └── netsuport-rat-2026-02-28-report.md
-├── month-1-suricata/          ← coming soon
+├── month-1-suricata/   
+|   ├── README.md
+│   ├── local.rules
+│   └── Rapport_Suricata.pdf      
 ├── month-2-wazuh/             ← coming soon
 └── ...
 ```
