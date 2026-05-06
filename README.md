@@ -130,6 +130,6 @@ Every analysis follows a structured 8-phase workflow :
 
 ## Connect
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=flat&logo=linkedin)](www.linkedin.com/in/jean-mik-c-tinigo)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=flat&logo=linkedin)](https://www.linkedin.com/in/jean-mik-c-tinigo)
 
 *Open to remote SOC Analyst Junior opportunities.*
