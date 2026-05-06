@@ -121,7 +121,7 @@ sudo lsof -i -n -P | grep LISTEN
 
 **Test Screenshot:** 
 List open port with their processus
-![image alt](https://github.com/Mikey1724/soc-home-lab/blob/6e96925bb84325a194382ff1b397b2aa929eeea1/images/M1_1_1_detection_script_result.png)
+![image alt](https://github.com/Mikey1724/soc-home-lab/blob/78252f3d85aa0dcc676335b6eb53eb3dcf3b1ff6/images/M1_1_1_open_port_with_their_processus.png)
 
 
 ---
