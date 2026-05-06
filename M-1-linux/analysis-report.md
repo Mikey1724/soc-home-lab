@@ -69,8 +69,60 @@ when a source IP exceeds the defined threshold.
 
 ---
 
+## Audit Sensible File
+
+**Context:** Used auditd to monitor sensitive system files and
+detect unauthorized modifications in real time.
+
+**Key commands:**
+```bash
+# Watch for changes to sensitive files
+sudo auditctl -w /etc/passwd -p wa -k passwd_changes
+
+# Check audit log for events
+sudo ausearch -k passwd_changes
+```
+
+**Finding:** Auditd correctly logged file access events
+with timestamp, user, and process details.
+
+---
+
 **Test Screenshot:** 
+Detection script result
 ![image alt](https://github.com/Mikey1724/soc-home-lab/blob/6e96925bb84325a194382ff1b397b2aa929eeea1/images/M1_1_1_detection_script_result.png)
+
+---
+
+**Test Screenshot:** 
+Check suspicious file modification with auditctl
+![image alt](https://github.com/Mikey1724/soc-home-lab/blob/6e96925bb84325a194382ff1b397b2aa929eeea1/images/M1_1_1_detection_script_result.png)
+
+---
+
+
+### Scenario 3 — Active Connection Monitoring
+
+**Context:** Identified active network connections and
+flagged processes listening on unexpected ports.
+
+**Key commands:**
+```bash
+# List all listening services
+ss -tulnp
+
+# Monitor new connections in real time
+watch -n 2 'ss -tnp | grep ESTABLISHED'
+
+# Check open files per process
+sudo lsof -i -n -P | grep LISTEN
+```
+---
+
+**Test Screenshot:** 
+List open port with their processus
+![image alt](https://github.com/Mikey1724/soc-home-lab/blob/6e96925bb84325a194382ff1b397b2aa929eeea1/images/M1_1_1_detection_script_result.png)
+
 
 ---
 
