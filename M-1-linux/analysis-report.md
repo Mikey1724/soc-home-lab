@@ -96,7 +96,7 @@ Detection script result
 
 **Test Screenshot:** 
 Check suspicious file modification with auditctl
-![image alt](https://github.com/Mikey1724/soc-home-lab/blob/6e96925bb84325a194382ff1b397b2aa929eeea1/images/M1_1_1_detection_script_result.png)
+![image alt](https://github.com/Mikey1724/soc-home-lab/blob/8574c808e11af09987bb8dda2d7015463202fe3d/images/M1_1_1_suspicious_file_modification.png)
 
 ---
 
