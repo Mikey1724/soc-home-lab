@@ -108,7 +108,10 @@ soc-home-lab/
 |   ├── README.md
 │   ├── local.rules
 │   └── Rapport_Suricata.pdf      
-├── month-2-wazuh/             ← coming soon
+├── month-2-wazuh/            ← In progress
+|   ├── screenshots/
+│   ├── kibana-dashboard-report.pdf
+│   └── wazuh-suricata-integration.md
 └── ...
 ```
 
