@@ -22,8 +22,8 @@ to SIEM deployment, incident response, and threat intelligence.
 | Month | Focus Area | Tools | Projects | Status |
 |-------|-----------|-------|----------|--------|
 | 1 | Linux CLI · Network Analysis · IDS | Wireshark, tshark, Suricata | 3 | ✅ Complete |
-| 2 | SIEM & Log Management | Wazuh, ELK Stack, Kibana | 3 | 🔄 In progress |
-| 3 | Incident Response & Forensics | Zeek, TheHive, Volatility | 3 | ⏳ Planned |
+| 2 | SIEM & Log Management | Wazuh, ELK Stack, Kibana | 3 | ✅ Complete |
+| 3 | Incident Response & Forensics | Zeek, TheHive, Volatility | 3 | 🔄 In progress |
 | 4 | Threat Intelligence | MISP, YARA, VirusTotal API | 3 | ⏳ Planned |
 | 5 | SOC Automation & SOAR | Shuffle, Python, TheHive API | 3 | ⏳ Planned |
 | 6 | Full Lab + CTF + Job Prep | All tools | 3 | ⏳ Planned |
@@ -111,7 +111,9 @@ soc-home-lab/
 ├── month-2-wazuh/            ← In progress
 |   ├── screenshots/
 │   ├── kibana-dashboard-report.pdf
-│   └── wazuh-suricata-integration.md
+│   ├── wazuh-suricata-integration.md
+│   ├── multi-source-correlation.md
+│   └── README_M2.md
 └── ...
 ```
 
