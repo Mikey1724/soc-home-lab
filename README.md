@@ -76,7 +76,7 @@ Linux / CLI         ████████░░  Log analysis · Bash scripti
 Intrusion Detection ███████░░░  Suricata · custom rules · eve.json
 Threat Detection    ███████░░░  IOC extraction · MITRE ATT&CK mapping
 Reporting           ████████░░  Executive summary · technical detail
-SIEM                ░░░░░░░░░░  Starting Month 2
+SIEM                ███████░░░  Kibana Dashboard · Alert Correlation
 ```
 
 ---
@@ -113,7 +113,7 @@ soc-home-lab/
 │   ├── kibana-dashboard-report.pdf
 │   ├── wazuh-suricata-integration.md
 │   ├── multi-source-correlation.md
-│   └── README_M2.md
+│   └── README.md
 └── ...
 ```
 
