@@ -22,7 +22,7 @@ to SIEM deployment, incident response, and threat intelligence.
 | Month | Focus Area | Tools | Projects | Status |
 |-------|-----------|-------|----------|--------|
 | 1 | Linux CLI · Network Analysis · IDS | Wireshark, tshark, Suricata | 3 | ✅ Complete |
-| 2 | SIEM & Log Management | Wazuh, ELK Stack, Kibana | 3 | ✅ Complete |
+| 2 | SIEM & Log Management | Wazuh, Kibana, OpenSearch | 3 | ✅ Complete |
 | 3 | Incident Response & Forensics | Zeek, TheHive, Volatility | 3 | 🔄 In progress |
 | 4 | Threat Intelligence | MISP, YARA, VirusTotal API | 3 | ⏳ Planned |
 | 5 | SOC Automation & SOAR | Shuffle, Python, TheHive API | 3 | ⏳ Planned |
@@ -39,7 +39,7 @@ to SIEM deployment, incident response, and threat intelligence.
 - Custom Bash detection script with threshold-based alerting
 - Auditd configuration for file integrity monitoring
 
-📁 [`month-1-linux/`](./M-1-linux/)
+📁 [`M-1-linux/`](./M-1-linux/)
 
 ---
 
@@ -52,42 +52,124 @@ to SIEM deployment, incident response, and threat intelligence.
 | 2026-01-31 | Lumma Stealer | 10.1.21.58 | 153.92.1.49 | 10 |
 | 2026-02-28 | NetSupport RAT | 10.2.28.88 | 45.131.214.85 | 5 |
 
-📁 [`month-1-wireshark/`](./M-1-wireshark/)
+📁 [`M-1-wireshark/`](./M-1-wireshark/)
 
 ---
 
 ### Project 1.3 — IDS Deployment with Suricata
-> Deployed Suricata as a network IDS and wrote custom detection rules
-> simulate real attacks from a Kali Linux machine, and validate each rule by analyzing Suricata alert logs.
+> Deployed Suricata as a network IDS, wrote 10 custom detection rules,
+> simulated real attacks from Kali Linux, and validated each rule via eve.json alerts.
 
-- Custom rules targeting classic attacks patterns (ICMP,NMAP,SSH brute-force,SQLi)
+- Custom rules: ICMP, Nmap scans, SSH brute-force, 6 SQL injection variants
 - Emerging Threats ruleset integration
-- Alert analysis via eve.json
+- Threshold-based behavioral detection (TCP SYN rates)
 
-📁 [`month-1-suricata/`](./M-1-suricata/) 
+📁 [`M-1-suricata/`](./M-1-suricata/)
+
+---
+
+## Month 2 — SIEM Deployment, Dashboards & Alert Correlation
+
+### Project 2.1 — Wazuh SIEM + Suricata Integration
+> Installed Wazuh 4.14 from scratch on Ubuntu Server (no pre-built VM).
+> Configured Wazuh Agent to ingest Suricata eve.json into OpenSearch in real time.
+
+- Full pipeline: Suricata alert → Wazuh Agent → OpenSearch → Threat Hunting
+- OpenSearch DSL queries to confirm raw alert ingestion
+- Wazuh auto-detected system events (PAM, sudo, AppArmor) without extra config
+- Production issue resolved: port 1514/tcp blocked by UFW
+
+📁 [`month-2-wazuh/`](./month-2-wazuh/)
+
+---
+
+### Project 2.2 — Kibana Dashboard + Brute-Force Detection
+> Built 4 Kibana visualizations and assembled a SOC monitoring dashboard.
+> Wrote a custom Wazuh XML rule detecting SSH brute-force via behavioral analysis.
+
+| Visualization | Type | SOC Value |
+|---|---|---|
+| Top 10 Alert Types | Bar chart | Identify dominant threats |
+| Alert Timeline | Line chart | Detect temporal anomalies |
+| Alert Sources Distribution | Donut | Log source breakdown |
+| Top Attacker IPs | Data table | Identify hostile sources |
+
+Custom rule 100002 (level 10) — 5× SSH failures in 120s → alert triggered ✅
+
+📁 [`month-2-wazuh/kibana-dashboard-report.pdf`](./month-2-wazuh/kibana-dashboard-report.pdf)
+
+---
+
+### Project 2.3 — Multi-Source Alert Correlation
+> Built a 4-rule Wazuh correlation chain reconstructing a complete attack sequence
+> across two independent log sources (Suricata IDS + Linux auth logs).
+
+```
+21:17:55  Nmap SYN scan       →  rule 100003  level 5
+21:19:04  SSH brute-force     →  rule 100005  level 12  ← CORRELATION
+21:20:09  sudo privilege esc. →  rule 100006  level 14  ← CRITICAL
+```
+
+| Technique | Name | Rule |
+|---|---|---|
+| T1595.001 | Active Scanning | 100003 |
+| T1110.001 | Password Guessing | 100005 |
+| T1078 | Valid Accounts | 100006 |
+
+📁 [`month-2-wazuh/multi-source-correlation.md`](./month-2-wazuh/multi-source-correlation.md)
+
+---
+
+## Month 3 — Incident Response & Forensics *(In progress)*
+
+### Project 3.1 — Zeek Network Analysis + MITRE ATT&CK
+> Deployed Zeek 8.2.0 in cluster mode to investigate a confirmed attack chain.
+> Answered 7 forensic investigation questions using only Zeek logs.
+
+- 2009 connections from attacker IP — scan confirmed via S0 conn_state
+- SSH brute-force sessions identified via ssh.log (auth_success field)
+- Suricata vs Zeek: alert perspective vs full network context (3 events compared)
+- Deployed in production cluster mode (Logger / Manager / Proxy / Worker)
+
+| Technique | Name | Zeek Evidence |
+|---|---|---|
+| T1595.002 | Port Scanning | 2028× conn_state S0 |
+| T1110.001 | Password Guessing | ssh.log auth_success: false |
+| T1078 | Valid Accounts | ssh.log auth_success: true |
+| T1571 | Non-Standard Port | Connections to unusual ports |
+
+📁 [`month-3-zeek-thehive/zeek-network-analysis.md`](./month-3-zeek-thehive/zeek-network-analysis.md)
+
+---
+
+### Project 3.2 — TheHive Incident Management *(coming soon)*
+### Project 3.3 — Memory Forensics with Volatility *(coming soon)*
 
 ---
 
 ## Skills Demonstrated
 
 ```
-Network Analysis    ████████░░  Wireshark · tshark · PCAP forensics
+Network Analysis    ████████░░  Wireshark · tshark · PCAP forensics · Zeek
 Linux / CLI         ████████░░  Log analysis · Bash scripting · auditd
-Intrusion Detection ███████░░░  Suricata · custom rules · eve.json
-Threat Detection    ███████░░░  IOC extraction · MITRE ATT&CK mapping
-Reporting           ████████░░  Executive summary · technical detail
-SIEM                ███████░░░  Kibana Dashboard · Alert Correlation
+Intrusion Detection ████████░░  Suricata · custom rules · eve.json
+Threat Detection    ████████░░  IOC extraction · MITRE ATT&CK mapping
+SIEM                ███████░░░  Wazuh · Kibana · OpenSearch DSL · correlation
+Investigation       ███████░░░  Zeek logs · conn_state analysis · SSH forensics
+Reporting           ████████░░  Installation · monitoring · investigation formats
 ```
 
 ---
 
 ## Tools Used
 
-![Linux](https://img.shields.io/badge/Linux-Ubuntu_22.04-E95420?style=flat&logo=ubuntu&logoColor=white)
+![Linux](https://img.shields.io/badge/Linux-Ubuntu_24.04-E95420?style=flat&logo=ubuntu&logoColor=white)
 ![Wireshark](https://img.shields.io/badge/Wireshark-4.x-1679A7?style=flat&logo=wireshark&logoColor=white)
-![Suricata](https://img.shields.io/badge/Suricata-IDS-orange?style=flat)
-![Wazuh](https://img.shields.io/badge/Wazuh-SIEM-blue?style=flat)
+![Suricata](https://img.shields.io/badge/Suricata-8.0-orange?style=flat)
+![Wazuh](https://img.shields.io/badge/Wazuh-4.14-blue?style=flat)
+![Zeek](https://img.shields.io/badge/Zeek-8.2-005571?style=flat)
 ![MITRE](https://img.shields.io/badge/MITRE-ATT%26CK-red?style=flat)
+![Kibana](https://img.shields.io/badge/Kibana-OpenSearch-005571?style=flat)
 
 ---
 
@@ -95,43 +177,45 @@ SIEM                ███████░░░  Kibana Dashboard · Alert Co
 
 ```
 soc-home-lab/
-├── README.md                  ← You are here
-├── month-1-linux/
+├── README.md                          ← You are here
+├── M-1-linux/
 │   ├── README.md
 │   ├── detect_bruteforce.sh
 │   └── analysis-report.md
-├── month-1-wireshark/
+├── M-1-wireshark/
 │   ├── README.md
 │   ├── lumma-stealer-2026-01-31-report.md
 │   └── netsuport-rat-2026-02-28-report.md
-├── month-1-suricata/   
-|   ├── README.md
+├── M-1-suricata/
+│   ├── README.md
 │   ├── local.rules
-│   └── Rapport_Suricata.pdf      
-├── month-2-wazuh/            ← In progress
-|   ├── screenshots/
-│   ├── kibana-dashboard-report.pdf
+│   └── Rapport_Suricata.pdf
+├── month-2-wazuh/
+│   ├── README.md
+│   ├── screenshots/
 │   ├── wazuh-suricata-integration.md
-│   ├── multi-source-correlation.md
-│   └── README.md
-└── ...
+│   ├── kibana-dashboard-report.pdf
+│   └── multi-source-correlation.md
+└── month-3-zeek-thehive/              ← In progress
+    ├── screenshots/
+    └── zeek-network-analysis.md
 ```
 
 ---
 
 ## Methodology
 
-Every analysis follows a structured 8-phase workflow :
+Every analysis follows a structured 8-phase workflow:
 
 ```
-1. Overview        → packet count, duration, protocol mix
-2. Host mapping    → identify victim, gateway, external IPs
-3. DNS analysis    → suspicious domains, DGA patterns
-4. HTTP analysis   → POST requests, User-Agents, C2 URIs
-5. Beaconing       → intervals, repeated connections
-6. Internal traffic→ SMB, LDAP, lateral movement indicators
-7. IOC validation  → VirusTotal, AbuseIPDB, WHOIS
-8. Reporting       → timeline, MITRE ATT&CK, recommendations
+1. Overview         → packet count, duration, protocol mix
+2. Host mapping     → identify victim, gateway, external IPs
+3. DNS analysis     → suspicious domains, DGA patterns
+4. HTTP analysis    → POST requests, User-Agents, C2 URIs
+5. Beaconing        → intervals, repeated connections
+6. Internal traffic → SMB, LDAP, lateral movement indicators
+7. IOC validation   → VirusTotal, AbuseIPDB, WHOIS
+8. Reporting        → timeline, MITRE ATT&CK, recommendations
 ```
 
 ---
