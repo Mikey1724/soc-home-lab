@@ -198,7 +198,8 @@ soc-home-lab/
 │   └── multi-source-correlation.md
 └── month-3-zeek-thehive/              ← In progress
     ├── screenshots/
-    └── zeek-network-analysis.md
+    ├── zeek-network-analysis.md
+    └── thehive-incident-management.md
 ```
 
 ---
