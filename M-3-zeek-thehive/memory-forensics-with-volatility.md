@@ -277,5 +277,5 @@ But finally i don't use it for the lab, i switch on volatility2.
 
 - [MemLabs Lab 1](https://github.com/stuxnet999/MemLabs)
 - [MITRE ATT&CK](https://attack.mitre.org)
-- [Volatility3](https://github.com/volatilityfoundation/volatility3.git)
+- [Volatility2](https://github.com/volatilityfoundation/volatility.git)
 - [VirtualBox Guest Additions](https://download.virtualbox.org/virtualbox/7.2.4)
