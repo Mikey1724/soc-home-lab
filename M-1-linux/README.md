@@ -1,4 +1,4 @@
-# Month 1 — Project 1.1 : Linux SOC Lab
+# Month 1 - Project 1.1 : Linux SOC Lab
 
 **Analyst:** Mik TINIGO
 **Date:** 2026-05-03
@@ -9,9 +9,7 @@
 
 ## Objective
 
-Set up a Linux-based SOC analyst workstation and simulate common security
-events to practice log analysis and threat detection using native CLI tools.
-No external tools — just the Linux command line, exactly as used in real SOC environments.
+Set up a Linux-based SOC analyst workstation and simulate common security events to practice log analysis and threat detection using native CLI tools.No external tools, just the Linux command line, exactly as used in real SOC environments.
 
 ---
 
@@ -32,18 +30,16 @@ No external tools — just the Linux command line, exactly as used in real SOC e
 | File | Description |
 |------|-------------|
 | `README.md` | This file |
-| `detect_bruteforce.sh` | Bash script — SSH brute-force detection |
+| `detect_bruteforce.sh` | Bash script, SSH brute-force detection |
 | `analysis-report.md` | Full incident simulation report |
 
 ---
 
 ## Scenarios Simulated
 
-### Scenario 1 — SSH Brute-Force Detection
+### Scenario 1 - SSH Brute-Force Detection
 
-**Context:** Simulated 15 failed SSH login attempts to generate
-auth.log entries, then analyzed the logs to identify the attack pattern
-and extract the source IP.
+**Context:** Simulated 15 failed SSH login attempts to generate auth.log entries, then analyzed the logs to identify the attack pattern and extract the source IP.
 
 **Key commands:**
 ```bash
@@ -55,15 +51,13 @@ grep "Failed password" /var/log/auth.log \
   | awk '{print $11}' | sort | uniq -c | sort -nr
 ```
 
-**Finding:** 25 failed attempts detected from 127.0.0.1
-targeting user `wronguser`. Alert threshold set at 5 attempts.
+**Finding:** 25 failed attempts detected from 127.0.0.1 targeting user `wronguser`. Alert threshold set at 5 attempts.
 
 ---
 
-### Scenario 2 — Suspicious File Modification
+### Scenario 2 - Suspicious File Modification
 
-**Context:** Used auditd to monitor sensitive system files and
-detect unauthorized modifications in real time.
+**Context:** Used auditd to monitor sensitive system files and detect unauthorized modifications in real time.
 
 **Key commands:**
 ```bash
@@ -74,15 +68,13 @@ sudo auditctl -w /etc/passwd -p wa -k passwd_changes
 sudo ausearch -k passwd_changes
 ```
 
-**Finding:** Auditd correctly logged file access events
-with timestamp, user, and process details.
+**Finding:** Auditd correctly logged file access events with timestamp, user, and process details.
 
 ---
 
-### Scenario 3 — Active Connection Monitoring
+### Scenario 3 - Active Connection Monitoring
 
-**Context:** Identified active network connections and
-flagged processes listening on unexpected ports.
+**Context:** Identified active network connections and flagged processes listening on unexpected ports.
 
 **Key commands:**
 ```bash
@@ -102,9 +94,7 @@ sudo lsof -i -n -P | grep LISTEN
 
 **File:** `detect_bruteforce.sh`
 
-Parses `/var/log/auth.log` and raises an alert when a source IP
-exceeds the defined failed login threshold. Outputs a timestamped
-report to `~/soc-reports/`.
+Parses `/var/log/auth.log` and raises an alert when a source IP exceeds the defined failed login threshold. Outputs a timestamped report to `~/soc-reports/`.
 
 ```bash
 # Usage
@@ -118,7 +108,7 @@ chmod +x detect_bruteforce.sh
 
 - Auth logs record every SSH attempt with source IP, username, and timestamp
 - `grep + awk + sort + uniq` is the core log parsing pipeline in Linux SOC work
-- Auditd tracks file-level changes — essential for detecting tampering
+- Auditd tracks file-level changes, essential for detecting tampering
 - `ss` and `lsof` reveal active connections and suspicious listening processes
 - Bash scripting automates repetitive detection tasks
 
@@ -128,14 +118,14 @@ chmod +x detect_bruteforce.sh
 
 | Technique ID | Name | Scenario |
 |---|---|---|
-| T1110.001 | Brute Force: Password Guessing | Scenario 1 — SSH brute-force |
-| T1083 | File and Directory Discovery | Scenario 2 — File monitoring |
-| T1049 | System Network Connections Discovery | Scenario 3 — Connection monitoring |
+| T1110.001 | Brute Force: Password Guessing | Scenario 1 - SSH brute-force |
+| T1083 | File and Directory Discovery | Scenario 2 - File monitoring |
+| T1049 | System Network Connections Discovery | Scenario 3 - Connection monitoring |
 
 ---
 
 ## Resources Used
 
 - [Ubuntu auditd documentation](https://linux.die.net/man/8/auditd)
-- [TryHackMe — SOC Level 1 path](https://tryhackme.com/path/outline/soclevel1)
+- [TryHackMe - SOC Level 1 path](https://tryhackme.com/path/outline/soclevel1)
 - [MITRE ATT&CK](https://attack.mitre.org)
