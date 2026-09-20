@@ -19,7 +19,7 @@ In this lab we are a Threat Intelligence analyst. Two incidents have been docume
 
 | Component        | Role                        | OS                      | IP             |Resources|
 |------------------|-----------------------------|-------------------------|----------------|---------|
-| Ubuntu Server VM | MISP server   | Ubuntu 22.04 Server   | 192.168.1.114  |5GB of RAM; 3 cores|
+| Ubuntu Server VM | MISP server   | Ubuntu 22.04 Server   | 192.168.1.114  |8GB of RAM; 3 cores|
 | Hypervisor       | Host                        | Oracle VirtualBox 7.2.4 | -              |-|
 
 
