@@ -20,7 +20,7 @@ Each month covers a new layer of the SOC analyst skillset, from Linux fundamenta
 
 | Month | Focus Area | Tools | Projects | Status |
 |-------|-----------|-------|----------|--------|
-| 1 | Linux CLI · Network Analysis · IDS | Wireshark, tshark, Suricata | 3 | ✅ Complete |
+| 1 | Linux CLI + Network Analysis + IDS | Wireshark, tshark, Suricata | 3 | ✅ Complete |
 | 2 | SIEM & Log Management | Wazuh, Kibana, OpenSearch | 3 | ✅ Complete |
 | 3 | Incident Response & Forensics | Zeek, TheHive, Volatility | 3 | ✅ Complete |
 | 4 | Threat Intelligence | MISP, YARA, VirusTotal API | 3 | ✅ Complete |
