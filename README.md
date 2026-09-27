@@ -24,7 +24,7 @@ Each month covers a new layer of the SOC analyst skillset, from Linux fundamenta
 | 2 | SIEM & Log Management | Wazuh, Kibana, OpenSearch | 3 | ✅ Complete |
 | 3 | Incident Response & Forensics | Zeek, TheHive, Volatility | 3 | ✅ Complete |
 | 4 | Threat Intelligence | MISP, YARA, VirusTotal API | 3 | ✅ Complete |
-| 5 | SOC Automation & SOAR | Shuffle, Python, TheHive API | 3 | 🔄 In progress |
+| 5 | SOC Automation & SOAR | n8n, Python, TheHive API | 3 | 🔄 In progress |
 | 6 | Full Lab + CTF + Job Prep | All tools | 3 | ⏳ Planned |
 
 ---
