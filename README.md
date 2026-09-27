@@ -23,8 +23,8 @@ Each month covers a new layer of the SOC analyst skillset, from Linux fundamenta
 | 1 | Linux CLI · Network Analysis · IDS | Wireshark, tshark, Suricata | 3 | ✅ Complete |
 | 2 | SIEM & Log Management | Wazuh, Kibana, OpenSearch | 3 | ✅ Complete |
 | 3 | Incident Response & Forensics | Zeek, TheHive, Volatility | 3 | ✅ Complete |
-| 4 | Threat Intelligence | MISP, YARA, VirusTotal API | 3 | 🔄 In progress |
-| 5 | SOC Automation & SOAR | Shuffle, Python, TheHive API | 3 | ⏳ Planned |
+| 4 | Threat Intelligence | MISP, YARA, VirusTotal API | 3 | ✅ Complete |
+| 5 | SOC Automation & SOAR | Shuffle, Python, TheHive API | 3 | 🔄 In progress |
 | 6 | Full Lab + CTF + Job Prep | All tools | 3 | ⏳ Planned |
 
 ---
@@ -182,12 +182,56 @@ Custom rule 100002 (level 10), 5× SSH failures in 120s -> alert triggered ✅
 📁 [`month-3-zeek-thehive/memory-forensics-with-volatility.md`](./month-3-zeek-thehive/memory-forensics-with-volatility.md)
  
 ---
+
+## Month 4 : Threat Intelligence
+
+### Project 4.1 : MISP CTI Platform + IOC Enrichment
+> Deployed MISP 2.5.45 via Docker and created two events from real
+> malware campaigns (Lumma Stealer + NetSupport RAT).
+> Built a Python pipeline querying VirusTotal API for automated IOC enrichment.
+
+- 2 MISP events created with TLP:AMBER classification
+- IOC classification: shared (C2 IPs, domains) vs private (victim IPs, hostnames)
+- VT public API module connected to MISP for in-platform enrichment
+- Production issue resolved: ForbiddenError, wrong VT plugin identified via Docker logs
+
+📁 [`month-4-threat-intel/misp_plateforme-cti-+-enrichissement-ioc(s).md`](./M-4-threat-intelligence/misp_plateforme-cti-+-enrichissement-ioc(s).md)
+
+---
+
+### Project 4.2 : YARA Rules + Static Malware Analysis
+> Wrote 3 YARA rules detecting Lumma Stealer and NetSupport RAT
+> based on behavioral patterns, rules that survive C2 infrastructure changes.
+
+- Rule 1: Lumma Stealer : `/api/set_agent` + `agent=Chrome/Edge`
+- Rule 2: NetSupport RAT : `/fakeurl.htm` + UA signature
+- Rule 3: Generic PE v2 : 5 detection branches including PE import table analysis
+- False positive analysis: documented why `"password"` and `"POST"` are dangerous strings
+
+📁 [`month-4-threat-intel/yara_rules_static_malware_analysis.md`](./M-4-threat-intelligence/yara_rules_static_malware_analysis.md)
+
+---
+
+### Project 4.3 : Threat Intelligence Report: Simulated APT Campaign
+> Compiled all Month 1 + Month 4 findings into a 14-page professional TI report
+> covering two coordinated campaigns targeting Windows endpoints in West Africa.
+
+| Campaign | Malware | C2 | Impact |
+|---|---|---|---|
+| Jan 2026 | Lumma Stealer | whitepepper.su | Credential theft : Chrome + Edge |
+| Feb 2026 | NetSupport RAT | 45.131.214.85 | Persistent access : 4h21 beaconing |
+
+8 MITRE ATT&CK techniques mapped · Detection package included (Suricata + YARA + DSL)
+
+📁 [`month-4-threat-intel/threat_intelligence_report_simulated_APT_campaign.pdf`](./M-4-threat-intelligence/threat_intelligence_report_simulated_APT_campaign.pdf)
+
+---
+
+## Month 5 - SOC Automation & SOAR *(In progress)*
  
-## Month 4 - Threat Intelligence *(In progress)*
- 
-### Project 4.1 - MISP Platform + IOC Enrichment *(coming soon)*
-### Project 4.2 - YARA Rules + Static Malware Analysis *(coming soon)*
-### Project 4.3 - Threat Intelligence Report *(coming soon)*
+### Project 5.1 - MISP Platform + IOC Enrichment *(coming soon)*
+### Project 5.2 - YARA Rules + Static Malware Analysis *(coming soon)*
+### Project 5.3 - Threat Intelligence Report *(coming soon)*
  
 ---
 
@@ -204,6 +248,7 @@ Network Forensics   ████████░░  Zeek cluster · conn_state �
 Memory Forensics    ███████░░░  Volatility2 · hashdump · memdump · GIMP
 Investigation       ███████░░░  Zeek logs · conn_state analysis · SSH forensics
 Reporting           ████████░░  Installation · monitoring · investigation formats
+Threat Intelligence ████████░░  MISP - IOC management - TLP classification
 ```
 
 ---
@@ -219,6 +264,8 @@ Reporting           ████████░░  Installation · monitoring �
 ![Volatility](https://img.shields.io/badge/Volatility-2-4A4A4A?style=flat)
 ![MITRE](https://img.shields.io/badge/MITRE-ATT%26CK-red?style=flat)
 ![Kibana](https://img.shields.io/badge/Kibana-OpenSearch-005571?style=flat)
+![MISP](https://img.shields.io/badge/MISP-2.5.45-1E6BA8?style=flat)
+![YARA](https://img.shields.io/badge/YARA-4.5.0-FF6B35?style=flat)
 
 ---
 
@@ -251,6 +298,15 @@ soc-home-lab/
 |   ├── zeek-network-analysis.md
 |   └── thehive-incident-management.md
 ├── month-4-threat-intel/
+|   ├── README.md                                                       
+|   ├── misp_plateforme-cti-+-enrichissement-ioc(s).md                  
+|   ├── vt_enrichment.py                                                
+|   ├── yara_rules_static_malware_analysis.md                           
+|   ├── local_rules.yar                                                 
+|   ├── yara_scanner.py                                                 
+|   ├── threat_intelligence_report_simulated_APT_campaign.pdf           
+|   └── screenshots/
+├── month-5-soc-auto-soar/
 
 ```
 
