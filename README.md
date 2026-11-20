@@ -195,7 +195,7 @@ Custom rule 100002 (level 10), 5× SSH failures in 120s -> alert triggered ✅
 - VT public API module connected to MISP for in-platform enrichment
 - Production issue resolved: ForbiddenError, wrong VT plugin identified via Docker logs
 
-📁 [`month-4-threat-intel/misp_plateforme-cti-+-enrichissement-ioc(s).md`](./M-4-threat-intelligence/misp_plateforme-cti-+-enrichissement-ioc(s).md)
+📁 [`month-4-threat-intel/misp_plateforme-cti_enrichissement-iocs.md`](./M-4-threat-intelligence/misp_plateforme-cti_enrichissement-iocs.md)
 
 ---
 
@@ -299,7 +299,7 @@ soc-home-lab/
 |   └── thehive-incident-management.md
 ├── month-4-threat-intel/
 |   ├── README.md                                                       
-|   ├── misp_plateforme-cti-+-enrichissement-ioc(s).md                  
+|   ├── misp_plateforme-cti_enrichissement-iocs.md                  
 |   ├── vt_enrichment.py                                                
 |   ├── yara_rules_static_malware_analysis.md                           
 |   ├── local_rules.yar                                                 
