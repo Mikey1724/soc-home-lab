@@ -78,7 +78,7 @@ Each month covers a new layer of the SOC analyst skillset, from Linux fundamenta
 - Wazuh auto-detected system events (PAM, sudo, AppArmor) without extra config
 - Production issue resolved: port 1514/tcp blocked by UFW
 
-📁 [`month-2-wazuh/`](./month-2-wazuh/)
+📁 [`M-2-wazuh/`](./M-2-wazuh/)
 
 ---
 
@@ -95,7 +95,7 @@ Each month covers a new layer of the SOC analyst skillset, from Linux fundamenta
 
 Custom rule 100002 (level 10), 5× SSH failures in 120s -> alert triggered ✅
 
-📁 [`month-2-wazuh/kibana-dashboard-report.pdf`](./month-2-wazuh/kibana-dashboard-report.pdf)
+📁 [`M-2-wazuh/kibana-dashboard-report.pdf`](./M-2-wazuh/kibana-dashboard-report.pdf)
 
 ---
 
@@ -114,7 +114,7 @@ Custom rule 100002 (level 10), 5× SSH failures in 120s -> alert triggered ✅
 | T1110.001 | Password Guessing | 100005 |
 | T1078 | Valid Accounts | 100006 |
 
-📁 [`month-2-wazuh/multi-source-correlation.md`](./month-2-wazuh/multi-source-correlation.md)
+📁 [`M-2-wazuh/multi-source-correlation.md`](./M-2-wazuh/multi-source-correlation.md)
 
 ---
 
@@ -136,7 +136,7 @@ Custom rule 100002 (level 10), 5× SSH failures in 120s -> alert triggered ✅
 | T1078 | Valid Accounts | ssh.log auth_success: true |
 | T1571 | Non-Standard Port | Connections to unusual ports |
 
-📁 [`month-3-zeek-thehive/zeek-network-analysis.md`](./month-3-zeek-thehive/zeek-network-analysis.md)
+📁 [`M-3-zeek-thehive/zeek-network-analysis.md`](./M-3-zeek-thehive/zeek-network-analysis.md)
 
 ---
  
@@ -155,7 +155,7 @@ Custom rule 100002 (level 10), 5× SSH failures in 120s -> alert triggered ✅
 | Impact Assessment | No exfiltration, no lateral movement |
 | Containment Recommendations | Firewall block, fail2ban, SSH hardening |
  
-📁 [`month-3-zeek-thehive/thehive-incident-management.md`](./month-3-zeek-thehive/thehive-incident-management.md)
+📁 [`M-3-zeek-thehive/thehive-incident-management.md`](./M-3-zeek-thehive/thehive-incident-management.md)
  
 ---
  
@@ -179,7 +179,7 @@ Custom rule 100002 (level 10), 5× SSH failures in 120s -> alert triggered ✅
 | T1027 | Obfuscated Files or Information | Base64-encoded string in console |
 | T1005 | Data from Local System | Files collected and archived |
  
-📁 [`month-3-zeek-thehive/memory-forensics-with-volatility.md`](./month-3-zeek-thehive/memory-forensics-with-volatility.md)
+📁 [`M-3-zeek-thehive/memory-forensics-with-volatility.md`](./M-3-zeek-thehive/memory-forensics-with-volatility.md)
  
 ---
 
@@ -195,7 +195,7 @@ Custom rule 100002 (level 10), 5× SSH failures in 120s -> alert triggered ✅
 - VT public API module connected to MISP for in-platform enrichment
 - Production issue resolved: ForbiddenError, wrong VT plugin identified via Docker logs
 
-📁 [`month-4-threat-intel/misp_plateforme-cti_enrichissement-iocs.md`](./M-4-threat-intelligence/misp_plateforme-cti_enrichissement-iocs.md)
+📁 [`M-4-threat-intel/misp_plateforme-cti_enrichissement-iocs.md`](./M-4-threat-intelligence/misp_plateforme-cti_enrichissement-iocs.md)
 
 ---
 
@@ -208,7 +208,7 @@ Custom rule 100002 (level 10), 5× SSH failures in 120s -> alert triggered ✅
 - Rule 3: Generic PE v2 : 5 detection branches including PE import table analysis
 - False positive analysis: documented why `"password"` and `"POST"` are dangerous strings
 
-📁 [`month-4-threat-intel/yara_rules_static_malware_analysis.md`](./M-4-threat-intelligence/yara_rules_static_malware_analysis.md)
+📁 [`M-4-threat-intel/yara_rules_static_malware_analysis.md`](./M-4-threat-intelligence/yara_rules_static_malware_analysis.md)
 
 ---
 
@@ -223,7 +223,7 @@ Custom rule 100002 (level 10), 5× SSH failures in 120s -> alert triggered ✅
 
 8 MITRE ATT&CK techniques mapped · Detection package included (Suricata + YARA + DSL)
 
-📁 [`month-4-threat-intel/threat_intelligence_report_simulated_APT_campaign.pdf`](./M-4-threat-intelligence/threat_intelligence_report_simulated_APT_campaign.pdf)
+📁 [`M-4-threat-intel/threat_intelligence_report_simulated_APT_campaign.pdf`](./M-4-threat-intelligence/threat_intelligence_report_simulated_APT_campaign.pdf)
 
 ---
 
@@ -286,18 +286,18 @@ soc-home-lab/
 │   ├── README.md
 │   ├── local.rules
 │   └── Rapport_Suricata.pdf
-├── month-2-wazuh/
+├── M-2-wazuh/
 │   ├── README.md
 │   ├── screenshots/
 │   ├── wazuh-suricata-integration.md
 │   ├── kibana-dashboard-report.pdf
 │   └── multi-source-correlation.md
-├── month-3-zeek-thehive/
+├── M-3-zeek-thehive/
 │   ├── README.md              
 |   ├── screenshots/
 |   ├── zeek-network-analysis.md
 |   └── thehive-incident-management.md
-├── month-4-threat-intel/
+├── M-4-threat-intel/
 |   ├── README.md                                                       
 |   ├── misp_plateforme-cti_enrichissement-iocs.md                  
 |   ├── vt_enrichment.py                                                
@@ -306,7 +306,7 @@ soc-home-lab/
 |   ├── yara_scanner.py                                                 
 |   ├── threat_intelligence_report_simulated_APT_campaign.pdf           
 |   └── screenshots/
-├── month-5-soc-auto-soar/
+├── M-5-soc-auto-soar/
 
 ```
 
