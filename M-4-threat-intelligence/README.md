@@ -55,7 +55,7 @@ Automated VirusTotal API queries for all IOCs with rate limiting (20s sleep betw
 **Production issue resolved:**
 `ForbiddenError` from MISP enrichment, diagnosed via Docker logs, identified wrong VT plugin (`virustotal` vs `virustotal_public`). Standard plugin requires higher rate limits than free account. Fixed by enabling `Plugin.Enrichment_virustotal_public_enabled`.
 
-📄 [`misp_plateforme-cti-+-enrichissement-ioc(s).md`](./misp_plateforme-cti-+-enrichissement-ioc(s).md)
+📄 [`misp_plateforme-cti_enrichissement-iocs.md`](./misp_plateforme-cti_enrichissement-iocs.md)
 📄 [`vt_enrichment.py`](./vt_enrichment.py)
 
 ---
@@ -171,7 +171,7 @@ MITRE ATT&CK          █████████░  8 techniques mapped across
 ```
 month-4-threat-intel/
 ├── README.md                                                       <- This file
-├── misp_plateforme-cti-+-enrichissement-ioc(s).md                  <- Project 4.1
+├── misp_plateforme-cti_enrichissement-iocs.md                  <- Project 4.1
 ├── vt_enrichment.py                                                <- VT API enrichment script
 ├── yara_rules_static_malware_analysis.md                           <- Project 4.2
 ├── local_rules.yar                                                 <- 3 YARA rules
